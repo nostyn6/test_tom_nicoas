@@ -27,4 +27,10 @@ while commande != 'exit':
             if nageur == elt[0]:
                 print(nageur, "nage du", elt[1])
 
+    if commande == 'nage':
+        nage = input("quelle nage? ")
+        for elt in liste:
+            if nage == elt[1]:
+                print(nage, "utiliser par", elt[0])
+                
 # Fin du programme
