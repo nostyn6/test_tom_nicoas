@@ -19,19 +19,25 @@ while commande != 'exit':
         liste.append((a,b,c,d))
    
     if commande == 'liste':
-        for elt in liste:
-            print(f"Prénom {elt[0]}, nage {elt[1]}, longueur {elt[2]}, le {elt[3]}")
+        for nageur, nage, longueur, date in liste:            
+            print(f"Prénom {nageur}, nage {nage}, longueur {longueur}, le {date}")
 
     if commande == 'nageur':
-        nageur = input("Qui nage ? ")
-        for elt in liste:
-            if nageur == elt[0]:
-                print(f"{elt[0]} nage du {elt[1]}, le {elt[3]}")
+        nageur_input = input("Qui nage ? ")
+        for nageur, nage, longueur in liste:            
+           if nageur_input == nageur:
+               print(f"{nageur} nage du {nage}, le {date}")
 
     if commande == 'nage':
-        nage = input("Quelle nage ? ")
-        for elt in liste:
-            if nage == elt[1]:
-                print(f"{nage}, utiliser par, {elt[0]}, le {elt[3]}")
+        nage_input = input("Quelle nage ? ")
+        for nageur, nage, longueur in liste:            
+            if nage_input == nage:
+                print(f"{nage}, utiliser par, {nageur}, le {date}")
+
+    if commande == 'date':
+        date_input = input("Quel jour ? YY_MM_DD")
+        for nageur, nage, longueur in liste:            
+            if date_input == date:
+               print(f"{nageur} nage du {nage}, le {date}")
                 
 # Fin du programme
