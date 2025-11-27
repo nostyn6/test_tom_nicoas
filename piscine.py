@@ -25,6 +25,6 @@ while commande != 'exit':
         nageur = input("Qui nage ? ")
         for elt in liste:
             if nageur == elt[0]:
-                print(nageur, "nage du", elt[0])
+                print(nageur, "nage du", elt[1])
 
 # Fin du programme
