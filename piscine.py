@@ -5,7 +5,12 @@
 
 print("--- Gestionnaire d'utilisateurs d'une piscine ---")
 
-liste = []
+liste = [("Léa", "Brasse", "15", "25-11-24"),
+         ("Pierre", "Brasse", "9", "25-11-24"),
+         ("Michel", "Crawl", "8", "25-11-26"),
+         ("Léa", "Crawl", "10", "25-11-25"),
+         ("Pierre", "Dos", "9", "25-11-26"),
+         ("Michel", "Brasse", "8", "25-11-26")]
 commande = ''
 
 while commande != 'exit':
