@@ -21,4 +21,10 @@ while commande != 'exit':
         for elt in liste:
             print(f"Prénom {elt[0]}, nage {elt[1]}, longueur {elt[2]}")
 
+    if commande == 'nageur':
+        nageur = input("Qui nage ? ")
+        for elt in liste:
+            if nageur == elt[0]:
+                print(nageur, "nage du", elt[0])
+
 # Fin du programme
