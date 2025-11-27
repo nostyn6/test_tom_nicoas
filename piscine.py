@@ -22,4 +22,3 @@ while commande != 'exit':
             print(f"Prénom {elt[0]}, nage {elt[1]}, longueur {elt[2]}")
 
 # Fin du programme
-# test
