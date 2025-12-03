@@ -8,23 +8,40 @@ nom_fichier = 'utilisateur.txt'
 
 print("--- Gestionnaire d'utilisateurs d'une piscine ---")
 
-liste = [("Léa", "Brasse", "15", "25-11-24"),
-         ("Pierre", "Brasse", "9", "25-11-24"),
-         ("Michel", "Crawl", "8", "25-11-26"),
-         ("Léa", "Crawl", "10", "25-11-25"),
-         ("Pierre", "Dos", "9", "25-11-26"),
-         ("Michel", "Brasse", "8", "25-11-26")]
+liste = [(0, 0, 15, "25-11-24"),
+         (1, 0, 9, "25-11-24"),
+         (2, 1, 8, "25-11-26"),
+         (0, 1, 10, "25-11-25"),
+         (1, 2, 9, "25-11-26"),
+         (2, 0, 8, "25-11-26")]
+
+liste_nageur = ["Léa", "Pierre", "Michel"]
+liste_nage = ["Brasse", "Crawl", "Dos"]
+liste_info = ["1", "2", "3", "4", "5"]
 commande = ''
 
 while commande != 'exit':
     commande = input("Que faut-il faire ? ")
 
     if commande == 'ajout':
-        a = input("Qui nage ? ").capitalize()
-        b = input("Quelle nage ? ").capitalize()
-        c = input("Combien de longueur ? ")
+        a = int(input("Qui nage ? "))
+        b = int(input("Quelle nage ? "))
+        c = int(input("Combien de longueur ? "))
         d = input("Quel jour ? YY_MM_DD")
         liste.append((a,b,c,d))
+
+    if commande == 'nouveau_nageur':
+        nouveau_nageur = input("Qui est le nouveau nageur ? ")
+        liste_nageur.append(nouveau_nageur)
+
+    if commande == 'nouvelle_nage':
+        nouvelle_nage = input("Qu'elle est la nouvelle nage ? ")
+        liste_nage.append(nouvelle_nage)
+    
+    if commande == 'nouvelle_info':
+        nouvelle_info = input("Qu'elle est la nouvelle info ? ")
+        liste_info.append(nouvelle_info)
+    
    
     if commande == 'liste':
 
@@ -37,8 +54,8 @@ while commande != 'exit':
         largeur_champ = 10
 
         for nageur, nage, longueur, date in liste:            
-            elt1 += f"{nageur:<{largeur_champ}}|"
-            elt2 += f"{nage:<{largeur_champ}}|"
+            elt1 += f"{liste_nageur[int(nageur)]:<{largeur_champ}}|"
+            elt2 += f"{liste_nage[nage]:<{largeur_champ}}|"
             elt3 += f"{longueur:<{largeur_champ}}|"
             elt4 += f"{date:<{largeur_champ}}|"
 
@@ -50,22 +67,22 @@ while commande != 'exit':
         print("-" * 24)
 
     if commande == 'nageur':
-        nageur_input = input("Qui nage ? ").capitalize()
+        id_nageur = int(input("Qui nage ? "))
         for nageur, nage, longueur, date in liste:            
-           if nageur_input == nageur:
-               print(f"{nageur} nage du {nage}, le {date}")
+            if id_nageur == nageur:
+                print(f"{liste_nageur[nageur]} nage du {liste_nage[nage]}, le {date}")
 
     if commande == 'nage':
-        nage_input = input("Quelle nage ? ").capitalize()
+        id_nage = int(input("Quelle nage ? "))
         for nageur, nage, longueur, date in liste:            
-            if nage_input == nage:
-                print(f"{nage}, utiliser par, {nageur}, le {date}")
+            if id_nage == nage:
+                print(f"{liste_nageur[nageur]} nage du {liste_nage[nage]}, le {date}")
 
     if commande == 'date':
         date_input = input("Quel jour ? YY_MM_DD")
         for nageur, nage, longueur, date in liste:            
             if date_input == date:
-               print(f"{nageur} nage du {nage}, le {date}")
+                print(f"{liste_nageur[nageur]} nage du {liste_nage[nage]}, le {date}")
 
     if commande == 'save':
         # Ouvrir le fichier en mode écriture ('w') et s'assurer qu'il se ferme après
@@ -91,7 +108,14 @@ while commande != 'exit':
                     valeurs = [v.strip() for v in ligne.split(',')]
 
                     # Affectation aux variables
-                    nageur, nage, longueur, date = valeurs
+                    nageur_str, nage_str, longueur_str, date = valeurs
+
+                    # Conversion obligatoire pour retrouver EXACTEMENT ton format d'origine
+                    nageur = int(nageur_str)
+                    nage = int(nage_str)
+                    longueur = int(longueur_str)
+
                     liste.append((nageur, nage, longueur, date))
+
                 
 # Fin du programme
