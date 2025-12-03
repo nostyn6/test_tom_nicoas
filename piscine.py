@@ -29,19 +29,19 @@ while commande != 'exit':
 
     if commande == 'nageur':
         nageur_input = input("Qui nage ? ").capitalize()
-        for nageur, nage, longueur in liste:            
+        for nageur, nage, longueur, date in liste:            
            if nageur_input == nageur:
                print(f"{nageur} nage du {nage}, le {date}")
 
     if commande == 'nage':
         nage_input = input("Quelle nage ? ").capitalize()
-        for nageur, nage, longueur in liste:            
+        for nageur, nage, longueur, date in liste:            
             if nage_input == nage:
                 print(f"{nage}, utiliser par, {nageur}, le {date}")
 
     if commande == 'date':
         date_input = input("Quel jour ? YY_MM_DD")
-        for nageur, nage, longueur in liste:            
+        for nageur, nage, longueur, date in liste:            
             if date_input == date:
                print(f"{nageur} nage du {nage}, le {date}")
                 
