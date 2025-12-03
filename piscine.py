@@ -3,6 +3,9 @@
 #   Gestionnaire d'utilisateurs d'une piscine 
 #
 
+# Le nom du fichier
+nom_fichier = 'utilisateur.txt'
+
 print("--- Gestionnaire d'utilisateurs d'une piscine ---")
 
 liste = [("Léa", "Brasse", "15", "25-11-24"),
@@ -44,5 +47,16 @@ while commande != 'exit':
         for nageur, nage, longueur, date in liste:            
             if date_input == date:
                print(f"{nageur} nage du {nage}, le {date}")
+
+    if commande == 'save':
+        # Ouvrir le fichier en mode écriture ('w') et s'assurer qu'il se ferme après
+        with open(nom_fichier, 'w') as f:
+            # Convertir le tuple en une chaîne de caractères
+            donnees_a_ecrire = str(liste)
+    
+            # Écrire la chaîne
+            f.write(donnees_a_ecrire)
+
+            print(f"✅ Tuple sauvegardé dans le fichier '{nom_fichier}'.")
                 
 # Fin du programme
