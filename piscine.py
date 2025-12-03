@@ -28,7 +28,7 @@ while commande != 'exit':
    
     if commande == 'liste':
 
-        elt1 = "|Prénom    |"
+        elt1 = "|Nageur    |"
         elt2 = "|Nage      |"
         elt3 = "|Longueur  |"
         elt4 = "|Date      |"
@@ -43,10 +43,10 @@ while commande != 'exit':
             elt4 += f"{date:<{largeur_champ}}|"
 
         print("--- Alignement par Défaut (Gauche) ---")
-        print(elt1)  # 'Prénom' suivi d'espaces
-        print(elt2)  # 'Nage' suivi d'espaces
-        print(elt3)  # 'Longueur' suivi d'espaces
-        print(elt4)  # 'Date' suivi d'espaces
+        print(elt1)  # 'Nageur' suivi des nageurs
+        print(elt2)  # 'Nage' suivi des nages
+        print(elt3)  # 'Longueur' suivi des longueurs
+        print(elt4)  # 'Date' suivi des dates
         print("-" * 24)
 
     if commande == 'nageur':
@@ -71,11 +71,27 @@ while commande != 'exit':
         # Ouvrir le fichier en mode écriture ('w') et s'assurer qu'il se ferme après
         with open(nom_fichier, 'w') as f:
             # Convertir le tuple en une chaîne de caractères
-            donnees_a_ecrire = str(liste)
+                for nageur, nage, longueur, date in liste:
     
-            # Écrire la chaîne
-            f.write(donnees_a_ecrire)
+                    # Écrire la chaîne
+                    f.write(f"{nageur},{nage},{longueur},{date}\n")
 
-            print(f"✅ Tuple sauvegardé dans le fichier '{nom_fichier}'.")
+                print(f"✅ Tuple sauvegardé dans le fichier '{nom_fichier}'.")
+
+    if commande == 'load':
+        liste = []  # on écrase l'ancienne liste
+        with open(nom_fichier, 'r') as fichier:
+
+            for ligne in fichier:
+                # Supprime les sauts de ligne et autres espaces inutiles au début/fin
+                ligne = ligne.strip()
+
+                if ligne:
+                    # Sépare la ligne en une liste de chaînes de caractères
+                    valeurs = [v.strip() for v in ligne.split(',')]
+
+                    # Affectation aux variables
+                    nageur, nage, longueur, date = valeurs
+                    liste.append((nageur, nage, longueur, date))
                 
 # Fin du programme
