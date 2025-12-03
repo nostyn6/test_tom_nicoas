@@ -27,8 +27,27 @@ while commande != 'exit':
         liste.append((a,b,c,d))
    
     if commande == 'liste':
+
+        elt1 = "|Prénom    |"
+        elt2 = "|Nage      |"
+        elt3 = "|Longueur  |"
+        elt4 = "|Date      |"
+
+        # Affichage des éléments avec une largeur de champ de 10
+        largeur_champ = 10
+
         for nageur, nage, longueur, date in liste:            
-            print(f"Prénom {nageur}, nage {nage}, longueur {longueur}, le {date}")
+            elt1 += f"{nageur:<{largeur_champ}}|"
+            elt2 += f"{nage:<{largeur_champ}}|"
+            elt3 += f"{longueur:<{largeur_champ}}|"
+            elt4 += f"{date:<{largeur_champ}}|"
+
+        print("--- Alignement par Défaut (Gauche) ---")
+        print(elt1)  # 'Prénom' suivi d'espaces
+        print(elt2)  # 'Nage' suivi d'espaces
+        print(elt3)  # 'Longueur' suivi d'espaces
+        print(elt4)  # 'Date' suivi d'espaces
+        print("-" * 24)
 
     if commande == 'nageur':
         nageur_input = input("Qui nage ? ").capitalize()
