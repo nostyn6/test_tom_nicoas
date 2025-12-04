@@ -1,1 +1,15 @@
-[('Léa', 'Brasse', '15', '25-11-24'), ('Pierre', 'Brasse', '9', '25-11-24'), ('Michel', 'Crawl', '8', '25-11-26'), ('Léa', 'Crawl', '10', '25-11-25'), ('Pierre', 'Dos', '9', '25-11-26'), ('Michel', 'Brasse', '8', '25-11-26'), ('1', '2', '3', '4')]
+@Liste des nageurs
+0,Léa
+1,Pierre
+2,Michel
+@Liste des nages
+0,Brasse
+1,Crawl
+2,Dos
+@Liste de la table des nageurs
+0,0,15,25-11-24
+1,0,9,25-11-24
+2,1,8,25-11-26
+0,1,10,25-11-25
+1,2,9,25-11-26
+2,0,8,25-11-26
